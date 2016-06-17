@@ -1,0 +1,74 @@
+#cf_content {
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  width: 600px;
+  height: 400px;
+  overflow: hidden; }
+  #cf_content #cf_pic {
+    position: absolute;
+    width: 3000px;
+    height: 400px;
+    z-index: 1;
+    transition: all 1s ease; }
+    #cf_content #cf_pic img {
+      float: left; }
+  #cf_content #cf_dot {
+    position: absolute;
+    width: 75px;
+    height: 10px;
+    left: 262.5px;
+    bottom: 8px;
+    z-index: 2; }
+    #cf_content #cf_dot span {
+      cursor: pointer;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: 1px solid gray;
+      background-color: rgba(136, 136, 136, 0.5);
+      float: left;
+      margin-left: 5px; }
+    #cf_content #cf_dot .on {
+      background-color: rgba(51, 51, 51, 0.7); }
+  #cf_content .cf-arrow {
+    cursor: pointer;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.3);
+    top: 180px;
+    z-index: 2;
+    text-align: center;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 40px;
+    color: #979797;
+    border-radius: 50%;
+    transform: scale(0.01, 0.01);
+    transition-duration: 0.3s; }
+    #cf_content .cf-arrow::selection {
+      color: #979797; }
+    #cf_content .cf-arrow:hover {
+      background-color: rgba(0, 0, 0, 0.7);
+      top: 181px; }
+    #cf_content .cf-arrow:active {
+      background-color: rgba(0, 0, 0, 0.6);
+      top: 180px; }
+  #cf_content #cf_prev {
+    left: 20px; }
+  #cf_content #cf_next {
+    right: 20px; }
+  #cf_content:hover .cf-arrow {
+    transform: scale(1, 1);
+    transition-duration: 0.3s; }
+
+.cf-default-border {
+  border: 8px solid #f1f1f1;
+  box-shadow: 4px 6px 8px #888888;
+  border-radius: 6px; }
+
+.cf-pink-border {
+  border: 8px solid pink;
+  box-shadow: 4px 6px 8px #C567CA;
+  border-radius: 2px; }

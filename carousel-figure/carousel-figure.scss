@@ -1,0 +1,117 @@
+$border-color: #f1f1f1;  //图片边框颜色
+$shadow-color: #888888;
+//图片的长宽
+$pic-width: 600px;
+$pic-height: 400px;
+$pic-count: 5;
+//点的设置
+$dot-width: 8px;
+$dot-height: 8px;
+$dot-padding-left: 5px;
+//箭头设置
+$arrow-width: 40px;
+$arrow-height: 40px;
+
+//轮播图根节点
+#cf_content{
+	margin: 0 auto;
+    text-align: center;
+    position: relative;
+    width: $pic-width;
+    height: $pic-height;
+    overflow: hidden;
+
+    //轮播图的图片区
+    #cf_pic{
+    	position: absolute;
+    	width: $pic-width * $pic-count;
+    	height: $pic-height;
+    	z-index: 1;
+    	transition:all 1s ease;
+    	img{
+    		float: left;
+    	}
+    }
+
+    //轮播图的点
+    #cf_dot{
+    	position: absolute;
+    	width: ($dot-width + $dot-padding-left + 2) * $pic-count; //这里加2是为了边框
+    	height: $dot-height + 2;
+    	left: ($pic-width - ($dot-width + $dot-padding-left + 2) * $pic-count) / 2;
+    	//left:12px;
+    	bottom: 8px;
+		z-index: 2;
+		span{
+			cursor: pointer;
+			width: $dot-width;
+    		height: $dot-height;
+    		border-radius: 50%;
+    		border: 1px solid gray;
+    		background-color: rgba(136,136,136,0.5);
+		    float: left;
+    		margin-left: $dot-padding-left;
+		}
+		.on{
+    		background-color: rgba(51,51,51,0.7);
+		}
+    }
+
+	//左右导向的箭头
+    .cf-arrow{
+	    cursor: pointer;
+	    position: absolute;
+	    width: $arrow-width;
+	    height: $arrow-height;
+	    background-color: rgba(0,0,0,0.3);
+	    top: ($pic-height - $arrow-height) / 2;
+	    z-index: 2;
+	    text-align: center;
+	    font-weight: bold;
+	    font-size: 36px;
+	    line-height: $arrow-height;
+	    color: #979797;
+	    border-radius: 50%;
+	    //设置动画缩放
+	    transform: scale(0.01, 0.01);
+		transition-duration: 0.3s;
+
+	    //消除选中后会有自带背景色的情况
+	    &::selection
+		{
+			color:#979797;
+		}
+	    &:hover{
+	    	background-color: rgba(0,0,0,0.7);
+	    	top: ($pic-height - $arrow-height) / 2 + 1;
+	    }
+	    &:active{
+	    	background-color: rgba(0,0,0,0.6);
+	    	top: ($pic-height - $arrow-height) / 2;
+	    }
+    }
+    //设置左右箭头的相对位置
+    #cf_prev{
+	    left: $arrow-height / 2;
+	}
+	#cf_next{
+	    right: $arrow-height / 2;
+	}
+	//设置鼠标移进去的箭头变换
+	&:hover .cf-arrow{
+	    transform: scale(1.0, 1.0);
+		transition-duration: 0.3s;
+	}
+}
+
+//设置不同的边框风格
+.cf-default-border{
+    border: 8px solid $border-color;
+    box-shadow: 4px 6px 8px $shadow-color;
+    border-radius: 6px;
+}
+.cf-pink-border{
+    border: 8px solid pink;
+    box-shadow: 4px 6px 8px #C567CA;
+    border-radius: 2px;
+}
